@@ -4,8 +4,7 @@ import MyRoute from './Components/Routes/MyRoute';
 import { useState, useEffect } from 'react';
 import { CountriesTs } from './Components/Types/MyTypes';
 import { myContext } from './Components/Contexts/MyContexts';
-import { ThemeProvider } from 'styled-components';
-import { themeSetting } from './Components/Contexts/MyContexts';
+
 
 const url = `https://restcountries.com/v3.1/all`;
 
