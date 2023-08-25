@@ -10,25 +10,25 @@ const Search = () => {
 
     return (
         <C.MySearch>
-            
-                <BiSearch className="search-icon" />
-                <input
-                    type='text'
-                    placeholder='Search for a Country'
-                    // value={searchContext?.search}
-                    onChange={(e) => searchContext?.setSearch(e.target.value)}
-                    value={searchContext?.search}
-                // onChange={searchContext?.setSearch(e => e.target.value)}
-                />
-                <select onChange={(e) => searchContext?.setSearch(e.target.value)}>
-                    <option value="Filter by Region" disabled selected>Filter by Region</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Americas">Americas</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Europe">Europe</option>
-                    <option value="Oceania">Oceania</option>
-                </select>
-            
+
+            <BiSearch className="search-icon" />
+            <input
+                type='text'
+                placeholder='Search for a Country'
+                // value={searchContext?.search}
+                onChange={(e) => searchContext?.setSearch(e.target.value)}
+                value={searchContext?.search}
+            // onChange={searchContext?.setSearch(e => e.target.value)}
+            />
+            <select onChange={(e) => searchContext?.setSearch(e.target.value)}>
+                <option value="Filter by Region" selected disabled>Filter by Region</option>
+                <option value="Africa">Africa</option>
+                <option value="Americas">Americas</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+
 
 
         </C.MySearch>

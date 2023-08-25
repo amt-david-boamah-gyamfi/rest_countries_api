@@ -1,148 +1,142 @@
 import styled from 'styled-components';
 
 export const Individual = styled.div`
-    color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
-        /* margin-top: 0; */
-        padding-top: 40px;
-        margin-top: 2px;
-
-    p{
-        display: flex;
-        align-items: center;
-        /* padding-left: 5%; */
-        justify-content: center;
-        box-shadow: 2px 2px 1em rgba(0,0,0,0.2);
-        width: 104px;
-        height: 32px;
-        margin-left: 5%;
-        /* margin-top: 40px; */
-        cursor: pointer;
-        margin-top: 0;
-        color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
-    }
-
-    .single_grid {
-        display: grid;
-        row-gap: 0px;
-margin-top: 64px;
 padding-left: 5%;
 padding-right: 5%;
-color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
+
+.back{
+   
+    // border: 1px solid red;
+//    padding-left: 5%;
+   
     }
 
-    .single_grid h4 {
-        font-weight:600;
-        color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
-    }
+ p {
+  display: flex;
+  margin-top: 40px;
+  padding-left:45px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  border-radius: 8px;
+
+//   border: 1px solid red;
+  width: 90px;
+  box-shadow: 2px 2px 1em rgba(0,0,0,0.2);
+
+ }
+
+ .single_grid {
+    padding-top:70px;
+    display: grid;
+    row-gap: 30px;
 
     .image {
-        border-radius: 7px;
-        margin-bottom: 40px;
-    }
-
-    img {
         width: 100%;
-        height: 229px;
-        border-radius: 7px;
-    }
+        // border: 1px solid red;
+        height: 100%;
+        border-radius: 5px;
 
-    h1{
-        font-size: 25px;
-        margin-bottom: 40px;
-        color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
-    }
-
-    span{
-        font-weight: 300;
-    }
-
-    .right{
-        display: grid;
-
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
     }
 
     .first {
-        line-height: 12px;
-        color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
+        line-height: 1.2;
+
+        h1{
+        font-size: 23px;
+    }
+
+    h4 {
+        font-weight: 600;
+
+        span {
+            font-weight: 300;
+        }
+    }
     }
 
     .second {
-        line-height:12px;
-        color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
-        
+line-height: 1.2;
+
+        h4 {
+        font-weight: 600;
+
+        span {
+            font-weight: 300;
+        }
+    }
     }
 
     .third {
-        line-height: 12px;
-        color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
-       
+        // border: 1px solid red;
+        display: flex;
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        align-items: center;
+
+        a {
+            /* border: 1px solid red; */
+            width: 96px;
+            height: 40px;
+            line-height: 3;
+           text-align: center;
+          display: flex;
+          justify-content: center;
+         box-shadow: 2px 2px 1em rgba(0,0,0,0.2);
+          align-items: center;
+        margin-left: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: inherit;
+            
+
+        }
     }
 
- 
+ }
 
-
-    @media(min-width:481px){
-padding-left: 10%;
-padding-right: 10%;
-
-p{
-    margin-left: 0;
+ @media (min-width:481px){
+    padding-left: 10%;
+    padding-right: 10%; 
 }
 
-        .single_grid {
-            /* display: grid;
-        row-gap: 0px; */
-/* border: 1px solid red; */
-/* margin-top: 64px;
-padding-left: 5%;
-padding-right: 5%;
-       */
-padding-left: 0%;
-padding-right: 0%;
-grid-template-columns: repeat(2, 1fr);
-align-content: center;
-column-gap: 10%;
+@media (min-width: 900px){
+.single_grid{
+    // row-gap: 90px;
+    grid-template-columns: 45% 20% 30%;
+    grid-template-rows: 70% 30%;
+    column-gap: 2.5%;
+    // border: 1px solid red;
+    align-content: center;
+
+    .image{
+        grid-row: 1/3;
     }
 
-    img {
-        width: 100%;
-        height: 401px;
-        border-radius: 7px;
-    }
 
-    .right{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-template-rows: repeat(3, 1fr);
-        align-content: center;
-        column-gap: 10%;
-
+    .first{
+        // border: 1px solid red;
+      
     }
     
-    .first {
-        grid-row: 1/3;
-        align-self: center;
-    }
-
     .second {
-        justify-self: end;
-        grid-row:1/3;
+        // border: 1px solid red;
         align-self: center;
     }
 
     .third {
         grid-column: span 2;
     }
+}
 
-   
-    }
-    
+
+}
+
+  
 ` 

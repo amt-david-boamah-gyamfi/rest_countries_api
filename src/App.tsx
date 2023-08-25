@@ -15,6 +15,7 @@ function App() {
   const [theme, setTheme] = useState(false);
   const [countries, setCountries] = useState<CountriesTs[]>([]);
   const [search, setSearch] = useState('');
+  const [select, setSelect] = useState('');
 
 
 
@@ -36,25 +37,34 @@ function App() {
   }
 
   const typingAndSelecting = search.toLowerCase();
+  const selecting = select.toLowerCase();
+
+  // const filterCountries = countries.filter(country => country
+  //   .name.common.toLowerCase().includes(typingAndSelecting))
 
   const filterCountries = countries.filter(country => country
     .name.common.toLowerCase().includes(typingAndSelecting) ||
     country.region.toLowerCase().includes(typingAndSelecting));
 
+  // const selected = countries.filter(country => country.region.toLowerCase().includes(selecting))
+
   return (
-   
-      <myContext.Provider value={{
-        theme: theme,
-        setTheme:setTheme,
-        toggle: toggle,
-        jsonResponse: filterCountries,
-        search: search,
-        setSearch: setSearch
-      }}>
-        <Header />
-        <MyRoute />
-      </myContext.Provider>
-    
+
+    <myContext.Provider value={{
+      theme: theme,
+      setTheme: setTheme,
+      toggle: toggle,
+      jsonResponse: filterCountries,
+  
+      search: search,
+      setSearch: setSearch,
+      select: select,
+      setSelect: setSelect
+    }}>
+      <Header />
+      <MyRoute />
+    </myContext.Provider>
+
 
   );
 }

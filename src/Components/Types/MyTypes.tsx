@@ -3,8 +3,9 @@ export interface CountriesTs {
         common: string,
         nativeName: {
             [index: string]: {
+                
                 common: string,
-                official: string
+                official: string,
             }
         }
     }
