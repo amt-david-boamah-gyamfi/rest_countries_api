@@ -12,8 +12,7 @@ interface ThemeAndApi {
     jsonResponse: CountriesTs[];
     search: string;
     setSearch: (e: string) => void;
-    select: string;
-    setSelect: (e: string) => void;
+    
 
 }
 
