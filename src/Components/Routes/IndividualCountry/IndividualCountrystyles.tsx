@@ -4,12 +4,7 @@ export const Individual = styled.div`
 padding-left: 5%;
 padding-right: 5%;
 
-.back{
-   
-    // border: 1px solid red;
-//    padding-left: 5%;
-   
-    }
+
 
  p {
   display: flex;
@@ -20,8 +15,6 @@ padding-right: 5%;
   padding-bottom: 15px;
   text-align: center;
   border-radius: 8px;
-
-//   border: 1px solid red;
   width: 90px;
   box-shadow: 2px 2px 1em rgba(0,0,0,0.2);
 
@@ -34,7 +27,7 @@ padding-right: 5%;
 
     .image {
         width: 100%;
-        // border: 1px solid red;
+        
         height: 100%;
         border-radius: 5px;
 
@@ -74,14 +67,14 @@ line-height: 1.2;
     }
 
     .third {
-        // border: 1px solid red;
+        
         display: flex;
-        /* flex-direction: column; */
+       
         flex-wrap: wrap;
         align-items: center;
 
         a {
-            /* border: 1px solid red; */
+            
             width: 96px;
             height: 40px;
             line-height: 3;
@@ -108,25 +101,18 @@ line-height: 1.2;
 
 @media (min-width: 900px){
 .single_grid{
-    // row-gap: 90px;
+    
     grid-template-columns: 45% 20% 30%;
     grid-template-rows: 70% 30%;
     column-gap: 2.5%;
-    // border: 1px solid red;
+    
     align-content: center;
 
     .image{
         grid-row: 1/3;
     }
-
-
-    .first{
-        // border: 1px solid red;
-      
-    }
     
     .second {
-        // border: 1px solid red;
         align-self: center;
     }
 

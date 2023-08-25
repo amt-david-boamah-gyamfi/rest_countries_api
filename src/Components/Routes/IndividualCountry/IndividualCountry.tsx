@@ -15,7 +15,7 @@ const IndividualCountry = () => {
 
     const matchingCountry: CountriesTs | undefined = individualContext?.jsonResponse.find(country => country.name.common === name)
 
-    // const selectCountry = countries.find(country => country.cca3 === countryCode)
+
 
     const nativeNames: { [index: string]: { common: string, official: string } } = matchingCountry ? matchingCountry.name.nativeName : {};
     const currencies: { [index: string]: { name: string } } = matchingCountry ? matchingCountry.currencies : {};
