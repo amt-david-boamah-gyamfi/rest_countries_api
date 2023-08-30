@@ -1,14 +1,39 @@
 import styled from 'styled-components';
+import { useContext } from 'react';
+import { myContext } from '../../Contexts/MyContexts';
 
 export const Individual = styled.div`
+padding-top: 50px;
 padding-left: 5%;
 padding-right: 5%;
 
 
+padding-bottom: 200px;
 
- p {
+--primary-light-mode-color :hsl(200, 15%, 8%);
+    --primary-light-mode-background-color:hsl(0, 0%, 98%); 
+    --primary-dark-mode-color:white;
+    --primary-dark-mode-background-color:#202C36;
+
+ 
+    
+
+    color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-color)' : 'var(--primary-light-mode-color)'
+    }};
+
+    background-color: ${props => {
+        const bColor = useContext(myContext);
+        return bColor?.theme ? 'var(--primary-dark-mode-background-color)' : 'var(-primary-light-mode-background-color)';
+    }};
+    
+transition: color 5s ease, background-color 0.5s ease;
+
+
+ .arrow {
   display: flex;
-  margin-top: 40px;
+
   padding-left:45px;
   padding-right: 20px;
   padding-top: 15px;
@@ -17,6 +42,18 @@ padding-right: 5%;
   border-radius: 8px;
   width: 90px;
   box-shadow: 2px 2px 1em rgba(0,0,0,0.2);
+
+  color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-color)' : 'hsl(0, 0%, 52%)'
+    }};
+
+    background-color: ${props => {
+        const bColor = useContext(myContext);
+        return bColor?.theme ? '#2B3844' : 'var(-primary-light-mode-background-color)'
+    }};
+   
+    
 
  }
 
@@ -86,7 +123,15 @@ line-height: 1.2;
         margin-left: 10px;
         border-radius: 5px;
         text-decoration: none;
-        color: inherit;
+        color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-color)' : 'hsl(0, 0%, 52%)'
+    }};
+
+    background-color: ${props => {
+        const bColor = useContext(myContext);
+        return bColor?.theme ? '#2B3844' : 'var(-primary-light-mode-background-color)'
+    }};
             
 
         }
@@ -123,6 +168,5 @@ line-height: 1.2;
 
 
 }
-
   
 ` 

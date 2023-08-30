@@ -5,7 +5,6 @@ import { CountriesTs } from '../Types/MyTypes';
 
 
 interface ThemeAndApi {
-    // isDark: boolean;
     setTheme: (theme: boolean) => void;
     theme: boolean
     toggle: () => void;

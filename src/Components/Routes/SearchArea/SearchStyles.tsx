@@ -1,21 +1,35 @@
 import styled from 'styled-components'
+import { useContext } from 'react';
+import { myContext } from '../../Contexts/MyContexts';
 
 export const MySearch = styled.div`
 
-    display: flex;
+display: flex;
     flex-direction: column;
-    margin-top: 1px;
+  
     padding-top: 24px;
     padding-left: 5%;
     padding-right: 5%;
-    color: hsl(200, 15%, 8%);
-   background-color: hsl(0, 0%, 98%);
+ 
 
 
-
+   --primary-light-mode-color :hsl(200, 15%, 8%);
+    --primary-light-mode-background-color:hsl(0, 0%, 98%); 
+    --primary-dark-mode-color:white;
+    --primary-dark-mode-background-color:#202C36;
     
-   /* color: red;
-   background-color: green; */
+    
+    color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-color)' : 'hsl(0, 0%, 52%)';
+    }};
+
+    background-color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-background-color)' : 'var(-primary-light-mode-background-color)'
+    }};
+
+transition: color 5s ease, background-color 0.5s ease;
 
     input {
         height: 48px;
@@ -24,9 +38,17 @@ export const MySearch = styled.div`
         margin-bottom: 40px;
         border-radius: 5px;
         padding-left: 15%;
-        /* position: relative; */
-         color: inherit; 
-    background-color: inherit; 
+    
+
+        color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-color)' : 'hsl(0, 0%, 52%)'
+    }};
+
+    background-color: ${props => {
+        const bColor = useContext(myContext);
+        return bColor?.theme ? '#2B3844' : 'var(-primary-light-mode-background-color)'
+    }};
    
     }
 
@@ -44,8 +66,17 @@ export const MySearch = styled.div`
             border-radius: 5px;
             width: 50%;
             padding-left: 5%;
-            color: inherit;
-   background-color: inherit;
+           
+
+            color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-color)' : 'hsl(0, 0%, 52%)'
+    }};
+
+background-color: ${props => {
+        const bColor = useContext(myContext);
+        return bColor?.theme ? '#2B3844' : 'var(-primary-light-mode-background-color)'
+    }};
           
         }
       
@@ -58,8 +89,7 @@ export const MySearch = styled.div`
     justify-content: space-between;
     padding-left: 10%;
     padding-right: 10%;
-    color: hsl(200, 15%, 8%);
-   background-color: hsl(0, 0%, 98%);
+  
 
            
     

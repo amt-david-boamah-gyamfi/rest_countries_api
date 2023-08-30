@@ -1,14 +1,29 @@
 import styled from 'styled-components';
-
+import { useContext } from 'react';
+import { myContext } from '../../Contexts/MyContexts';
 export const Countriesstyle = styled.div`
+   --primary-light-mode-color :hsl(200, 15%, 8%);
+    --primary-light-mode-background-color:hsl(0, 0%, 98%); 
+    --primary-dark-mode-color:white;
+    --primary-dark-mode-background-color:#202C36;
+
     padding-left: 15%;
     padding-right: 15%;
-        /* margin-top: 48px; */
+        padding-bottom: 105px;
         padding-top: 48px;
     display: grid;
     row-gap: 40px;
-    color: hsl(200, 15%, 8%);
-   background-color: hsl(0, 0%, 98%);
+    color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-color)' : 'var(--primary-light-mode-color)';
+    }};
+
+    background-color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-background-color)' : 'var(-primary-light-mode-background-color)'
+    }};
+
+transition: color 5s ease, background-color 0.5s ease;
  
     
     a {
@@ -19,9 +34,15 @@ export const Countriesstyle = styled.div`
     .grid {
         box-shadow: 2px 2px 1em rgba(0,0,0,0.2);
         border-radius: 8px;
-        color: hsl(200, 15%, 8%);
-   background-color: hsl(0, 0%, 98%);
-  
+        color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-color)' : 'hsl(0, 0%, 52%)'
+    }};
+
+    background-color: ${props => {
+        const bColor = useContext(myContext);
+        return bColor?.theme ? '#2B3844' : 'var(-primary-light-mode-background-color)'
+    }};
   
    
     }
@@ -35,20 +56,28 @@ export const Countriesstyle = styled.div`
     .height {
                padding-top: 10px;
         padding-bottom: 15px;
+
+        color: ${props => {
+        const color = useContext(myContext);
+        return color?.theme ? 'var(--primary-dark-mode-color)' : 'var(--primary-light-mode-color)'
+    }};
+
+    background-color: ${props => {
+        const bColor = useContext(myContext);
+        return bColor?.theme ? '#2B3844' : 'var(-primary-light-mode-background-color)'
+    }};
     }
 
     h1 {
         padding-left: 7%;
         font-size: 18px;
-        color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
+        
     }
 
     p {
         padding-left: 7%;
         font-weight: 600;
-        color: hsl(200, 15%, 8%);
-        background-color: hsl(0, 0%, 98%);
+        
       
 
         span {

@@ -23,7 +23,7 @@ const IndividualCountry = () => {
     return (
         <C.Individual>
             <div className="back">
-                <p onClick={() => navigate('/')}><MdKeyboardBackspace style={{ fontSize: '22px', marginRight: '5px' }} />Back</p>
+                <div className="arrow" onClick={() => navigate('/')}><MdKeyboardBackspace style={{ fontSize: '22px', marginRight: '5px' }} />Back</div>
             </div>
 
             <div className="single_grid">
