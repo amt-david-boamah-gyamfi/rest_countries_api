@@ -60,7 +60,7 @@ cursor: pointer;
  .single_grid {
     padding-top:70px;
     display: grid;
-    row-gap: 30px;
+    row-gap: 10px;
 
     
 
