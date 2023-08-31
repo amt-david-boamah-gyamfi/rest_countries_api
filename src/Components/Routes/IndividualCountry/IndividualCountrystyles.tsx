@@ -33,7 +33,7 @@ transition: color 5s ease, background-color 0.5s ease;
 
  .arrow {
   display: flex;
-
+cursor: pointer;
   padding-left:45px;
   padding-right: 20px;
   padding-top: 15px;

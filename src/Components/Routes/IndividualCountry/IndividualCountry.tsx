@@ -1,6 +1,6 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { MdKeyboardBackspace } from 'react-icons/md'
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { myContext } from "../../Contexts/MyContexts";
 import * as C from './IndividualCountrystyles'
 import { CountriesTs } from "../../Types/MyTypes";
@@ -9,11 +9,26 @@ import { CountriesTs } from "../../Types/MyTypes";
 
 
 const IndividualCountry = () => {
+    const [matchingCountry, setMatchingCountry] = useState<CountriesTs | undefined>(undefined);
+
     const { name } = useParams();
     const individualContext = useContext(myContext);
     const navigate = useNavigate()
 
-    const matchingCountry: CountriesTs | undefined = individualContext?.jsonResponse.find(country => country.name.common === name)
+
+
+    useEffect(() => {
+        const country = individualContext?.jsonResponse.find(country => country.name.common === name);
+        setMatchingCountry(country);
+    }, [name, individualContext]);
+
+
+
+    if (!matchingCountry) {
+        return <p>Loading...</p>;
+    }
+
+
 
 
 
@@ -63,11 +78,12 @@ const IndividualCountry = () => {
                     {matchingCountry?.borders ? (
                         matchingCountry.borders.map((borderCountry, index) => (
 
-
-
-                            <Link className="borders" key={index} to={`/`}>   {borderCountry}  {index !== matchingCountry.borders.length - 1 && ""}</Link>
-
-
+                            <Link
+                                className="borders"
+                                key={index}
+                                to={`/${individualContext?.jsonResponse.find((country: CountriesTs) => country.cca3 === borderCountry)?.name.common}`}>
+                                {borderCountry} {index !== matchingCountry.borders.length - 1 ? "" : ""}
+                            </Link>
 
 
                         ))
@@ -75,9 +91,6 @@ const IndividualCountry = () => {
                         <p>No border countries available.</p>
                     )}
                 </div>
-
-
-
             </div>
 
         </C.Individual >

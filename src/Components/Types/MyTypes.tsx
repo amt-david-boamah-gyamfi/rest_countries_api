@@ -34,6 +34,8 @@ export interface CountriesTs {
 
     cca2: string
 
+    cca3:string
+
     flags: {
         alt: string,
         png: string,
