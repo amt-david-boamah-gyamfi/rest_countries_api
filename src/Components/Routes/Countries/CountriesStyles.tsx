@@ -9,7 +9,7 @@ export const Countriesstyle = styled.div`
 
     padding-left: 15%;
     padding-right: 15%;
-        padding-bottom: 105px;
+        padding-bottom: 58%;
         padding-top: 48px;
     display: grid;
     row-gap: 40px;
