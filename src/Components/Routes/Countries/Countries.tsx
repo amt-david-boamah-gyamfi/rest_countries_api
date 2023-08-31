@@ -4,12 +4,24 @@ import * as C from './CountriesStyles';
 import { Link } from "react-router-dom";
 
 const Countries = () => {
-    const Countries = useContext(myContext)
+    
+
+    const context = useContext(myContext);
+
+    const filteredCountries = context?.jsonResponse.filter(country => {
+        const searchTermMatch = country.name.common.toLowerCase().includes(context.search.toLowerCase());
+        const continentMatch = context.selectedContinent === '' || country.region.toLowerCase() === context.selectedContinent.toLowerCase();
+
+        return searchTermMatch && continentMatch;
+    });
+    
+
+
     return (
         <C.Countriesstyle>
             {
-                Countries?.jsonResponse.map(country => (
-                    <div key={country.cca2} className="grid">
+                filteredCountries?.map(country => (
+                    <div key={country.cca3} className="grid">
                         <Link to={`./${country.name.common}`}>
                             <img src={country.flags.png} alt={country.flags.alt} />
                             <div className="height">
@@ -19,12 +31,11 @@ const Countries = () => {
                                 <p>Capital: <span>{country.capital}</span></p>
                             </div>
                         </Link>
-
                     </div>
                 ))
             }
         </C.Countriesstyle>
-    )
+    );
 }
 
 export default Countries

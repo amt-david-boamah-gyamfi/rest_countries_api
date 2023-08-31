@@ -15,12 +15,12 @@ const Search = () => {
             <input
                 type='text'
                 placeholder='Search for a Country'
-            
+
                 onChange={(e) => searchContext?.setSearch(e.target.value)}
                 value={searchContext?.search}
-            
+
             />
-            <select onChange={(e) => searchContext?.setSearch(e.target.value)}>
+            <select onChange={(e) => searchContext?.setSelectedContinent(e.target.value)}>
                 <option value="Filter by Region" selected disabled>Filter by Region</option>
                 <option value="Africa">Africa</option>
                 <option value="Americas">Americas</option>

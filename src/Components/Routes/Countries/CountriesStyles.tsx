@@ -50,7 +50,7 @@ transition: color 5s ease, background-color 0.5s ease;
     img {
         width: 100%;
         border-radius: 8px 8px 0 0;
-        height: 200px;
+        height: 160px;
     }
 
     .height {

@@ -62,6 +62,8 @@ cursor: pointer;
     display: grid;
     row-gap: 30px;
 
+    
+
     .image {
         width: 100%;
         
@@ -77,6 +79,7 @@ cursor: pointer;
 
     .first {
         line-height: 1.2;
+        
 
         h1{
         font-size: 23px;
@@ -111,8 +114,9 @@ line-height: 1.2;
         align-items: center;
 
         a {
-            
-            width: 96px;
+            font-weight: 600;
+            width: 34%;
+            padding: 3px;
             height: 40px;
             line-height: 3;
            text-align: center;
@@ -132,6 +136,7 @@ line-height: 1.2;
         const bColor = useContext(myContext);
         return bColor?.theme ? '#2B3844' : 'var(-primary-light-mode-background-color)'
     }};
+   
             
 
         }

@@ -3,7 +3,7 @@ export interface CountriesTs {
         common: string,
         nativeName: {
             [index: string]: {
-                
+
                 common: string,
                 official: string,
             }
@@ -32,13 +32,10 @@ export interface CountriesTs {
 
     region: string
 
-    cca2: string
-
-    cca3:string
+    cca3: string
 
     flags: {
         alt: string,
         png: string,
-        svg: string
     }
 }

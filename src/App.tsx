@@ -2,8 +2,9 @@ import './App.css';
 import Header from './Components/Header/Header';
 import MyRoute from './Components/Routes/MyRoute';
 import { useState, useEffect } from 'react';
-import { CountriesTs } from './Components/Types/MyTypes';
+
 import { myContext } from './Components/Contexts/MyContexts';
+import { CountriesType } from './Components/Types/CountriesType';
 
 
 const url = `https://restcountries.com/v3.1/all`;
@@ -12,9 +13,9 @@ const url = `https://restcountries.com/v3.1/all`;
 function App() {
 
   const [theme, setTheme] = useState(false);
-  const [countries, setCountries] = useState<CountriesTs[]>([]);
+  const [countries, setCountries] = useState<CountriesType[]>([]);
   const [search, setSearch] = useState('');
-
+  const [selectedContinent, setSelectedContinent] = useState('');
 
 
 
@@ -35,16 +36,6 @@ function App() {
     setTheme(!theme)
   }
 
-  const typingAndSelecting = search.toLowerCase();
-
-
-
-
-  const filterCountries = countries.filter(country => country
-    .name.common.toLowerCase().includes(typingAndSelecting) ||
-    country.region.toLowerCase().includes(typingAndSelecting));
-
-
 
   return (
 
@@ -52,10 +43,12 @@ function App() {
       theme: theme,
       setTheme: setTheme,
       toggle: toggle,
-      jsonResponse: filterCountries,
+      jsonResponse: countries,
 
       search: search,
       setSearch: setSearch,
+      selectedContinent: selectedContinent,
+      setSelectedContinent: setSelectedContinent
 
     }}>
       <Header />

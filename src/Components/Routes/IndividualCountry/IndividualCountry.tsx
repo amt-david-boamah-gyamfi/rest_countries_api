@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { myContext } from "../../Contexts/MyContexts";
 import * as C from './IndividualCountrystyles'
 import { CountriesTs } from "../../Types/MyTypes";
+import { CountriesType } from "../../Types/CountriesType";
 
 
 
@@ -18,7 +19,7 @@ const IndividualCountry = () => {
 
 
     useEffect(() => {
-        const country = individualContext?.jsonResponse.find(country => country.name.common === name);
+        const country = individualContext?.jsonResponse.find(country => country.name.common === name) as CountriesTs;
         setMatchingCountry(country);
     }, [name, individualContext]);
 
@@ -76,17 +77,24 @@ const IndividualCountry = () => {
                 <div className="third">
                     <h4>Border Countries:</h4>
                     {matchingCountry?.borders ? (
-                        matchingCountry.borders.map((borderCountry, index) => (
+                        matchingCountry.borders.map((borderCountryAbbreviation, index) => {
+                            const borderCountryObj = individualContext?.jsonResponse.find(
+                                (country: CountriesType) => country.cca3 === borderCountryAbbreviation
+                            );
 
-                            <Link
-                                className="borders"
-                                key={index}
-                                to={`/${individualContext?.jsonResponse.find((country: CountriesTs) => country.cca3 === borderCountry)?.name.common}`}>
-                                {borderCountry} {index !== matchingCountry.borders.length - 1 ? "" : ""}
-                            </Link>
+                            if (borderCountryObj) {
+                                return (
+                                    <Link
+                                        className="borders"
+                                        key={index}
+                                        to={`/${borderCountryObj.name.common}`}>
+                                        {borderCountryObj.name.common} {index !== matchingCountry.borders.length - 1 ? "" : ""}
+                                    </Link>
+                                );
+                            }
 
-
-                        ))
+                            return null; // Return null if border country not found
+                        })
                     ) : (
                         <p>No border countries available.</p>
                     )}
